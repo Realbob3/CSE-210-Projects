@@ -1,26 +1,57 @@
 using System;
 
+
+public class Job
+{
+    public string JobTitle;
+    public string Company;
+    public int StartYear;
+    public int EndYear;
+
+    public void Display()
+    {
+        Console.WriteLine($"{JobTitle} ({Company}) {StartYear}-{EndYear}");
+    }
+}
+public class Resume
+{
+    public string Name;
+    public List<Job> Jobs = new List<Job>(); 
+
+    public void Display()
+    {
+        Console.WriteLine();
+        Console.WriteLine($"Name: {Name}");
+        Console.WriteLine("Jobs:");
+
+    
+        foreach (Job job in Jobs)
+        {
+            job.Display();
+        }
+    }
+}
 class Program
 {
     static void Main(string[] args)
     {
-        job job1 = new job();
-        job1_jobtitle = "Software Developer";
-        job1_company = "Valve";
-        job1_startyear = 2017;
-        job1_endyear = 2020;
+        Job job1 = new Job();
+        job1.JobTitle = "Software Developer";
+        job1.Company = "Valve";
+        job1.StartYear = 2017;
+        job1.EndYear = 2020;
 
-        job job2 = new job();
-        job2_jobtitle = "Sales representative";
-        job2_company = "Samsung";
-        job2_startyear = 2020;
-        job2_endyear = 2024;
+        Job job2 = new Job();
+        job2.JobTitle = "Sales representative";
+        job2.Company = "Samsung";
+        job2.StartYear = 2020;
+        job2.EndYear = 2024;
 
-        resume resume1 = new resume();
-        resume1_name = "John Resume";
+        Resume resume1 = new Resume();
+        resume1.Name = "John Resume";
 
-        resume1_jobs.add(job1);
-        resume1_jobs.add(job2);
+        resume1.Jobs.Add(job1);
+        resume1.Jobs.Add(job2);
 
         resume1.Display();
     }
